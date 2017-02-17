@@ -1,0 +1,41 @@
+<%= form_for(@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @note.errors.count %>件のエラー:</h2>
+
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  タイトル
+  <%= f.text_field :title, { class: "form-control title-field" } %>
+    <!-- 追加箇所 開始 -->
+    <div class="field">
+      <% if @note.image? %>
+          <div class="thumbnail">
+            <%= image_tag @note.image.url %>
+          </div>
+      <% end %><br>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div class="field">
+      <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+      <% if @note.persisted? && @note.image? %>
+          <label>
+            <%= f.check_box :remove_image %>
+            画像を削除
+          </label>
+      <% end %>
+    </div>
+    <!-- 追加箇所 終了 -->
+  内容
+  <%= f.text_area :content, { class: "form-control content-field" } %>
+  <%= f.submit "保存", { class: "btn primary-btn" } %>
+
+<% end %>
