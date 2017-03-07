@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @notes = @user.notes
-    @title = "投稿一覧"
+    @notes = @user.notes.order(created_at: :desc)
+    @title = ""
   end
 
   def edit

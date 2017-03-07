@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get :like_notes
     end

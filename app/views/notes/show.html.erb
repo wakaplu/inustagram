@@ -20,7 +20,7 @@
 
 <div>
   <small>
-    <%= link_to @note.likes.count, liking_users_note_path(@note.id), id: "like-count" %>人がいいね！といっています
+    <%= link_to @note.likes.count.to_s + "人", liking_users_note_path(@note.id), id: "like-count" %>がいいね！といっています
 
   </small>
 </div>
