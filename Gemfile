@@ -21,6 +21,7 @@ gem 'pry-rails', '0.3.4'
 gem 'hirb-unicode'
 # 画像アップロード
 gem "carrierwave"
+gem "mini_magick"
 # アイコンフォント
 gem "font-awesome-rails"
 
