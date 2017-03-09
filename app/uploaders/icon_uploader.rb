@@ -1,4 +1,4 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class IconUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "user_images/#{model.id}"
   end
 
   # Exif情報のOrientationから画像をよしなに修正した後、Exif情報を除去する
@@ -26,7 +26,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
-  process :resize_to_fit => [1024, 1024]
+  process :resize_to_fill => [1024, 1024]
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

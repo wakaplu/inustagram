@@ -17,15 +17,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    file = params[:user][:image]
-    puts "================="
-    puts "================="
-    puts file
-    puts file.class
-    puts "================="
-    puts "================="
-    @user.set_image(file)
-
     if @user.update(user_params)
       redirect_to @user, notice: 'ユーザー情報が更新されました'
     else
@@ -46,7 +37,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :image)
     end
 
     def correct_user
