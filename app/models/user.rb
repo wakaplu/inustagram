@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   # validates :email, presence: true, uniqueness: true
   mount_uploader :image, IconUploader
 
+  def image_url
+    image ? image : '/images/wanko.png'
+  end
+
 end
