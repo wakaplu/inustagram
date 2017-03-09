@@ -13,7 +13,16 @@ class User < ActiveRecord::Base
   mount_uploader :image, IconUploader
 
   def image_url
-    image ? image : '/images/wanko.png'
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    puts image.to_s
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    puts '>>>>>>======='
+    image.to_s != "" ? image : '/images/wanko.png'
   end
 
 end
