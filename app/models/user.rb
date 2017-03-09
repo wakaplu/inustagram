@@ -11,9 +11,19 @@ class User < ActiveRecord::Base
   # deviseのvalidatableによって以下と同じバリデーションが設定されているのでコメントアウトしています
   # validates :email, presence: true, uniqueness: true
 
+
   def set_image(file)
     if !file.nil?
       file_name = file.original_filename
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      puts file_name
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+
       File.open("public/user_images/#{file_name}", 'wb'){|f| f.write(file.read)}
       self.image = file_name
     end

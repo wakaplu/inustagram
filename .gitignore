@@ -8,8 +8,8 @@ vendor/bundle
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
-public/uploads
-public/user_images
+public/uploads/*
+public/user_images/*
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
