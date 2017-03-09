@@ -1,0 +1,101 @@
+2017-03-09T10:13:50.423529+00:00 heroku[router]: at=info method=POST path="/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=c1ebd9b3-3d5c-443c-b11d-a5ffc0338222 fwd="126.247.71.225" dyno=web.1 connect=1ms service=3070ms status=500 bytes=1754 protocol=https
+2017-03-09T10:13:50.364807+00:00 app[web.1]: Started PATCH "/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:13:50 +0000
+2017-03-09T10:13:50.367075+00:00 app[web.1]: Processing by UsersController#update as HTML
+2017-03-09T10:13:50.367216+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"8NXRxCPPmK+2Gy/9nxmnL7C+RdhZp6bAUgSZSxmbNTiyDBkcYWKeLoG717MZlK3bE4zs7i/fch7cqYQSEwRDvQ==", "user"=>{"name"=>"わか", "email"=>"kakutawaka@gmail.com", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fe365f5f9d8 @tempfile=#<Tempfile:/tmp/RackMultipart20170309-4-1denwdb.jpeg>, @original_filename="image.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"image.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save", "containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:13:50.370076+00:00 app[web.1]:   [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+2017-03-09T10:13:50.371443+00:00 app[web.1]:   [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:13:50.372541+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+2017-03-09T10:13:50.373175+00:00 app[web.1]: Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.5ms)
+2017-03-09T10:13:50.374722+00:00 app[web.1]: 
+2017-03-09T10:13:50.374726+00:00 app[web.1]: Errno::ENOENT (No such file or directory @ rb_sysopen - public/user_images/image.jpeg):
+2017-03-09T10:13:50.374727+00:00 app[web.1]:   app/models/user.rb:17:in `initialize'
+2017-03-09T10:13:50.374729+00:00 app[web.1]:   app/models/user.rb:17:in `set_image'
+2017-03-09T10:13:50.374728+00:00 app[web.1]:   app/models/user.rb:17:in `open'
+2017-03-09T10:13:50.374730+00:00 app[web.1]:   app/controllers/users_controller.rb:21:in `update'
+2017-03-09T10:13:50.374732+00:00 app[web.1]: 
+2017-03-09T10:13:50.374731+00:00 app[web.1]: 
+2017-03-09T10:14:30.088129+00:00 heroku[router]: at=info method=GET path="/?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=18808ad4-60a3-4a7a-8033-22b35f4fff52 fwd="103.5.140.148" dyno=web.1 connect=0ms service=67ms status=200 bytes=6123 protocol=https
+2017-03-09T10:14:29.972798+00:00 app[web.1]: Started GET "/?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 103.5.140.148 at 2017-03-09 10:14:29 +0000
+2017-03-09T10:14:29.975159+00:00 app[web.1]: Processing by HomeController#top as HTML
+2017-03-09T10:14:29.975228+00:00 app[web.1]:   Parameters: {"containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5"}
+2017-03-09T10:14:30.002994+00:00 app[web.1]:   [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+2017-03-09T10:14:30.007937+00:00 app[web.1]:   Rendered notes/_form.html.erb (3.0ms)
+2017-03-09T10:14:30.009339+00:00 app[web.1]:   [1m[35mNote Load (0.9ms)[0m  SELECT "notes".* FROM "notes"  ORDER BY "notes"."created_at" DESC
+2017-03-09T10:14:30.011885+00:00 app[web.1]:   [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:14:30.016576+00:00 app[web.1]:   [1m[35mLike Load (0.8ms)[0m  SELECT  "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."note_id" = $2 LIMIT 1  [["user_id", 1], ["note_id", 5]]
+2017-03-09T10:14:30.017307+00:00 app[web.1]:   Rendered likes/_like_links.html.erb (3.0ms)
+2017-03-09T10:14:30.021839+00:00 app[web.1]:   [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+2017-03-09T10:14:30.019461+00:00 app[web.1]:   [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."note_id" = $1[0m  [["note_id", 5]]
+2017-03-09T10:14:30.028545+00:00 app[web.1]:   Rendered likes/_like_links.html.erb (2.8ms)
+2017-03-09T10:14:30.027273+00:00 app[web.1]:   [1m[36mLike Load (1.0ms)[0m  [1mSELECT  "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."note_id" = $2 LIMIT 1[0m  [["user_id", 1], ["note_id", 4]]
+2017-03-09T10:14:30.030136+00:00 app[web.1]:   [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."note_id" = $1  [["note_id", 4]]
+2017-03-09T10:14:30.030580+00:00 app[web.1]:   Rendered notes/_note.html.erb (20.8ms)
+2017-03-09T10:14:30.031337+00:00 app[web.1]:   Rendered home/top.html.erb within layouts/application (26.0ms)
+2017-03-09T10:14:30.033586+00:00 app[web.1]: Completed 200 OK in 58ms (Views: 23.2ms | ActiveRecord: 6.7ms)
+2017-03-09T10:14:30.319656+00:00 heroku[router]: at=info method=GET path="/images/wanko.png" host=peaceful-island-55177.herokuapp.com request_id=04fd6b2c-43e7-410d-acef-d86764093c08 fwd="103.5.140.148" dyno=web.1 connect=3ms service=6ms status=304 bytes=133 protocol=https
+2017-03-09T10:14:30.508470+00:00 heroku[router]: at=info method=GET path="/uploads/note/image/5/image.jpeg" host=peaceful-island-55177.herokuapp.com request_id=79ee0aaa-3312-45a0-a757-73871a7956f7 fwd="103.5.140.148" dyno=web.1 connect=1ms service=11ms status=304 bytes=133 protocol=https
+2017-03-09T10:14:30.684237+00:00 heroku[router]: at=info method=GET path="/uploads/note/image/4/2016-04-09_15-56-42_574.jpeg" host=peaceful-island-55177.herokuapp.com request_id=a3e37896-7e82-4287-96bb-5f6d09f6d05d fwd="103.5.140.148" dyno=web.1 connect=0ms service=6ms status=304 bytes=133 protocol=https
+2017-03-09T10:14:30.896427+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=peaceful-island-55177.herokuapp.com request_id=92e2610d-9504-4e23-b0d1-d18d008ca574 fwd="103.5.140.148" dyno=web.1 connect=0ms service=6ms status=200 bytes=228 protocol=https
+2017-03-09T10:14:48.732412+00:00 heroku[router]: at=info method=GET path="/users/2/edit?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=705b8803-c159-4053-aba6-f7960a3b81ad fwd="126.247.71.225" dyno=web.1 connect=1ms service=25ms status=200 bytes=3156 protocol=https
+2017-03-09T10:14:48.659492+00:00 app[web.1]: Started GET "/users/2/edit?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:14:48 +0000
+2017-03-09T10:14:48.661525+00:00 app[web.1]: Processing by UsersController#edit as HTML
+2017-03-09T10:14:48.661600+00:00 app[web.1]:   Parameters: {"containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:14:48.665960+00:00 app[web.1]:   [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:14:48.669841+00:00 app[web.1]:   [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+2017-03-09T10:14:48.670341+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+2017-03-09T10:14:48.675757+00:00 app[web.1]:   Rendered users/_form.html.erb (3.7ms)
+2017-03-09T10:14:48.675869+00:00 app[web.1]:   Rendered users/edit.html.erb within layouts/application (4.0ms)
+2017-03-09T10:14:48.678311+00:00 app[web.1]: Completed 200 OK in 17ms (Views: 7.5ms | ActiveRecord: 5.0ms)
+2017-03-09T10:14:49.639383+00:00 app[web.1]: Started PATCH "/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:14:49 +0000
+2017-03-09T10:14:49.641457+00:00 app[web.1]: Processing by UsersController#update as HTML
+2017-03-09T10:14:49.641507+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UKKVPZvZo8ZFvFtgdrWTZu+3qZbY+RP4R+S2DpO+dJsSe13l2XSlR3Icoy7wOJmSTIUAoK6BxybJSatXmSECHg==", "user"=>{"name"=>"わか", "email"=>"kakutawaka@gmail.com"}, "commit"=>"Save", "containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:14:49.643704+00:00 app[web.1]:   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+2017-03-09T10:14:49.644954+00:00 app[web.1]:   [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:14:49.645506+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+2017-03-09T10:14:49.646648+00:00 app[web.1]:   [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+2017-03-09T10:14:49.648912+00:00 app[web.1]:   [1m[35m (0.7ms)[0m  COMMIT
+2017-03-09T10:14:49.649589+00:00 app[web.1]: Redirected to https://peaceful-island-55177.herokuapp.com/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5
+2017-03-09T10:14:49.649899+00:00 app[web.1]: Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+2017-03-09T10:14:49.704107+00:00 heroku[router]: at=info method=POST path="/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=41622e60-3a7f-4ea4-88e7-216080abd32d fwd="126.247.71.225" dyno=web.1 connect=1ms service=18ms status=302 bytes=1311 protocol=https
+2017-03-09T10:14:49.976092+00:00 heroku[router]: at=info method=GET path="/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=7899d772-64e4-4153-a526-b5dd2c855ec8 fwd="126.247.71.225" dyno=web.1 connect=1ms service=37ms status=200 bytes=4842 protocol=https
+2017-03-09T10:14:49.901689+00:00 app[web.1]: Started GET "/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:14:49 +0000
+2017-03-09T10:14:49.903554+00:00 app[web.1]: Processing by UsersController#show as HTML
+2017-03-09T10:14:49.903558+00:00 app[web.1]:   Parameters: {"containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:14:49.905877+00:00 app[web.1]:   [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:14:49.907047+00:00 app[web.1]:   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+2017-03-09T10:14:49.910566+00:00 app[web.1]:   [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 2]]
+2017-03-09T10:14:49.912669+00:00 app[web.1]:   [1m[35mNote Load (0.8ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."user_id" = $1  ORDER BY "notes"."created_at" DESC  [["user_id", 2]]
+2017-03-09T10:14:49.916177+00:00 app[web.1]:   [1m[36mLike Load (0.7ms)[0m  [1mSELECT  "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."note_id" = $2 LIMIT 1[0m  [["user_id", 2], ["note_id", 5]]
+2017-03-09T10:14:49.916929+00:00 app[web.1]:   Rendered likes/_like_links.html.erb (2.0ms)
+2017-03-09T10:14:49.918481+00:00 app[web.1]:   [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."note_id" = $1  [["note_id", 5]]
+2017-03-09T10:14:49.919066+00:00 app[web.1]:   Rendered notes/_note.html.erb (6.0ms)
+2017-03-09T10:14:49.919168+00:00 app[web.1]:   Rendered users/show.html.erb within layouts/application (10.8ms)
+2017-03-09T10:14:49.921440+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 10.5ms | ActiveRecord: 5.1ms)
+2017-03-09T10:14:50.356529+00:00 heroku[router]: at=info method=GET path="/images/wanko.png" host=peaceful-island-55177.herokuapp.com request_id=3d564e88-93c4-4b01-a872-3ea0c34613d4 fwd="126.247.71.225" dyno=web.1 connect=1ms service=3ms status=304 bytes=133 protocol=https
+2017-03-09T10:14:50.873102+00:00 heroku[router]: at=info method=GET path="/uploads/note/image/5/image.jpeg" host=peaceful-island-55177.herokuapp.com request_id=81300733-1613-4c6e-935b-bdadb708ab31 fwd="126.247.71.225" dyno=web.1 connect=1ms service=4ms status=304 bytes=133 protocol=https
+2017-03-09T10:14:57.983035+00:00 heroku[router]: at=info method=GET path="/users/2/edit?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=b42a66cb-76ea-4dc9-8de6-509d6910dff0 fwd="126.247.71.225" dyno=web.1 connect=2ms service=13ms status=200 bytes=3156 protocol=https
+2017-03-09T10:14:57.924466+00:00 app[web.1]: Started GET "/users/2/edit?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:14:57 +0000
+2017-03-09T10:14:57.926044+00:00 app[web.1]: Processing by UsersController#edit as HTML
+2017-03-09T10:14:57.926065+00:00 app[web.1]:   Parameters: {"containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:14:57.929173+00:00 app[web.1]:   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+2017-03-09T10:14:57.928018+00:00 app[web.1]:   [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:14:57.929466+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+2017-03-09T10:14:57.931132+00:00 app[web.1]:   Rendered users/_form.html.erb (1.1ms)
+2017-03-09T10:14:57.931197+00:00 app[web.1]:   Rendered users/edit.html.erb within layouts/application (1.2ms)
+2017-03-09T10:14:57.932277+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.5ms)
+2017-03-09T10:15:08.954406+00:00 app[web.1]: Started PATCH "/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" for 126.247.71.225 at 2017-03-09 10:15:08 +0000
+2017-03-09T10:15:08.956101+00:00 app[web.1]: Processing by UsersController#update as HTML
+2017-03-09T10:15:08.956185+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"e7ll1Gx+ASoQYFIL44ZpPGpe0WKlMRD+8otG0Bkc4dQ5YK0MLtMHqyfAqkVlC2PIyWx4VNNJxCB8JluJE4OXUQ==", "user"=>{"name"=>"わか", "email"=>"kakutawaka@gmail.com", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fe3665b23d0 @tempfile=#<Tempfile:/tmp/RackMultipart20170309-4-1v8rep1.jpeg>, @original_filename="image.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"image.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save", "containerPort"=>"3000", "languageName"=>"rails", "privateIp"=>"172.17.0.5", "id"=>"2"}
+2017-03-09T10:15:08.958035+00:00 app[web.1]:   [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+2017-03-09T10:15:08.959178+00:00 app[web.1]:   [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+2017-03-09T10:15:08.959462+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+2017-03-09T10:15:08.959839+00:00 app[web.1]: Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms)
+2017-03-09T10:15:08.960416+00:00 app[web.1]: 
+2017-03-09T10:15:08.960418+00:00 app[web.1]: Errno::ENOENT (No such file or directory @ rb_sysopen - public/user_images/image.jpeg):
+2017-03-09T10:15:08.960418+00:00 app[web.1]:   app/models/user.rb:17:in `initialize'
+2017-03-09T10:15:08.960419+00:00 app[web.1]:   app/models/user.rb:17:in `open'
+2017-03-09T10:15:08.960419+00:00 app[web.1]:   app/models/user.rb:17:in `set_image'
+2017-03-09T10:15:08.960420+00:00 app[web.1]:   app/controllers/users_controller.rb:21:in `update'
+2017-03-09T10:15:08.960421+00:00 app[web.1]: 
+2017-03-09T10:15:08.960421+00:00 app[web.1]: 
+2017-03-09T10:15:09.003586+00:00 heroku[router]: at=info method=POST path="/users/2?containerPort=3000&languageName=rails&privateIp=172.17.0.5" host=peaceful-island-55177.herokuapp.com request_id=549fc379-00a2-4220-9857-dbd5f0560337 fwd="126.247.71.225" dyno=web.1 connect=1ms service=1881ms status=500 bytes=1754 protocol=https
