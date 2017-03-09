@@ -18,6 +18,12 @@ class UsersController < ApplicationController
 
   def update
     file = params[:user][:image]
+    puts "================="
+    puts "================="
+    puts file
+    puts file.class
+    puts "================="
+    puts "================="
     @user.set_image(file)
 
     if @user.update(user_params)
