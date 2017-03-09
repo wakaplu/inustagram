@@ -5,8 +5,6 @@ gem 'devise', '3.5.1'
 gem 'hirb', '0.7.3'
 # railsのgem
 gem 'rails', '4.2.1'
-# sqlite3データベースのgem
-gem 'sqlite3', '1.3.10'
 # SCSSスタイルシートのgem
 gem 'sass-rails', '5.0.6'
 # JavaScript assetの圧縮用のgem
@@ -25,3 +23,11 @@ gem 'hirb-unicode'
 gem "carrierwave"
 # アイコンフォント
 gem "font-awesome-rails"
+
+group :development do
+  gem 'sqlite3', '1.3.10'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
