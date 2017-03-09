@@ -9,7 +9,7 @@ class NotesController < ApplicationController
   def create
     @note = current_user.notes.build(note_params)
     if @note.save
-      redirect_to @note, notice: "投稿が保存されました"
+      redirect_to root_path
     else
       @notes = Note.all.order(created_at: :desc)
       render 'home/top'
