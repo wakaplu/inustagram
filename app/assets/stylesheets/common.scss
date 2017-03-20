@@ -31,6 +31,14 @@ a:hover {
   display: inline-block;
 }
 
+.text-white{
+  color: #ffffff
+}
+
+.fixed-form{
+  width:300px !important;
+}
+
 /* フォント
 ================================ */
 h1, h2, h3, h4, h5, h6 {
@@ -120,10 +128,11 @@ p {
 
 /* フッター ================================ */
 footer {
+  position: fixed;
+  bottom: 0;
   margin-top: 100px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #848484;
+  padding: 5px;
+  color: #ffffff;
 }
 
 footer small {
@@ -143,7 +152,7 @@ footer small {
 }
 
 .btn-large {
-  padding: 6px 140px;
+  padding: 6px;
   font-size: 18px;
 }
       

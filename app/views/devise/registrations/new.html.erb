@@ -1,29 +1,26 @@
-<h1>アカウント作成</h1>
+<h1 class="text-white" >アカウント作成</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label 'Name' %><br />
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    <%= f.label 'Name', class:"text-white" %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control fixed-form" %>
   </div>
 
   <div class="field">
-    <%= f.label 'E-mail' %><br />
-    <%= f.email_field :email, class: "form-control" %>
+    <%= f.label 'E-mail' ,class:"text-white" %><br />
+    <%= f.email_field :email, class: "form-control fixed-form" %>
   </div>
 
   <div class="field">
-    <%= f.label 'Password' %>
-    <% if @minimum_password_length %>
-    (<%= @minimum_password_length %> 文字以上)
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    <%= f.label 'Password' + (@minimum_password_length ? ("("+@minimum_password_length.to_s+"文字以上)"):""), class:"text-white" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control fixed-form" %>
   </div>
 
   <div class="field">
-    <%= f.label 'Password（確認）' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    <%= f.label 'Password（確認）' , class:"text-white" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control fixed-form" %>
   </div>
 
   <div class="actions">
