@@ -11,7 +11,6 @@
     </div>
   <% end %>
 
-
     <!-- 追加箇所 開始 -->
     <div class="field">
       <% if @note.image? %>
@@ -23,18 +22,10 @@
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
     </div>
-    <div class="field">
-      <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-      <% if @note.persisted? && @note.image? %>
-          <label>
-            <%= f.check_box :remove_image %>
-            Delete image
-          </label>
-      <% end %>
-    </div>
+
     <!-- 追加箇所 終了 -->
   Comment
   <%= f.text_area :content, { class: "form-control content-field" } %>
-  <%= f.submit "Post", { class: "btn primary-btn" } %>
+  <%= f.submit "投稿", { class: "btn primary-btn" } %>
 
 <% end %>
